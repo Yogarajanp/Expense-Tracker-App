@@ -1,0 +1,68 @@
+<app-navbar></app-navbar>
+<div class="maincontainer">
+
+  <app-report (dataEmitter)="onReportDataReceived($event)"></app-report>
+  <button type="button" class="btn btn-success" (click)="newExpense()">New Expense</button>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="S.No">
+      <th mat-header-cell *matHeaderCellDef> S.No </th>
+      <td mat-cell *matCellDef="let element"> {{element.expenseID}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Category">
+      <th mat-header-cell *matHeaderCellDef> Category </th>
+      <td mat-cell *matCellDef="let element"> {{element.category.categoryType}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Amount">
+      <th mat-header-cell *matHeaderCellDef> Amount </th>
+      <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="DateofTransaction">
+      <th mat-header-cell *matHeaderCellDef> DateofTransaction </th>
+      <td mat-cell *matCellDef="let element"> {{element.dateofTransaction}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ModeofTransaction">
+      <th mat-header-cell *matHeaderCellDef> ModeofTransaction </th>
+      <td mat-cell *matCellDef="let element"> {{element.modeOfTransaction}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Receipt">
+      <th mat-header-cell *matHeaderCellDef> Receipt </th>
+      <td mat-cell *matCellDef="let element">
+
+        @if(element.receiptPath)
+        {
+        <button (click)="download(element.expenseID,element.receiptPath)">Download </button>
+        }
+        @else
+        {
+        no receipt
+        }
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="Action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary" (click)="editExpense(element)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="removeExpense(element.expenseID)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5]" showFirstLastButtons></mat-paginator>
+</div>

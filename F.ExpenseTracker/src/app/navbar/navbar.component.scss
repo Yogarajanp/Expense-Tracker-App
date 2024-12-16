@@ -1,0 +1,40 @@
+/* navbar.component.css */
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.custom-navbar {
+  background-color: rgba(68, 61, 61, 0.8);
+  /* White background with 80% opacity */
+  padding: 10px 20px;
+  width: 100%;
+}
+
+.navbar-brand,
+.nav-link {
+  color: #f5f5f5;
+  text-decoration: none;
+  padding: 5px 20px;
+}
+
+.navbar-brand:hover,
+.nav-link:hover {
+  color: orangered;
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+  /* Removing bullet points from the list */
+  padding: 0;
+  /* Removing default padding */
+  margin: 0;
+  /* Removing default margin */
+}
+
+li {
+  margin: 0 10px;
+}

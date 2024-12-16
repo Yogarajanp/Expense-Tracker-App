@@ -1,0 +1,65 @@
+﻿@using ExpenseTrakerLibrary.Model
+@model ExpenseTrakerLibrary.Model.Expense
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = ViewBag.IsAdmin == 1 ? "~/Views/Shared/_LayoutAdmin.cshtml" : "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1></h1>
+<h2>Edit</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <!--  <input asp-for="CategoryId" class="form-control" />-->
+                @{
+
+                    var categories = ViewData["Categories"] as List<Category>;
+                }
+
+
+                <select asp-for="CategoryId" class="form-control">
+                    @foreach (var i in categories)
+                    {
+                        <option value="@i.CategoryID">@i.CategoryType</option>
+                    }
+                </select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ModeOfTransaction" class="control-label"></label>
+                <select asp-for="ModeOfTransaction">
+                    <option asp-for="ModeOfTransaction">Online</option>
+                    <option asp-for="ModeOfTransaction">Offline</option>
+                </select>
+                <span asp-validation-for="ModeOfTransaction" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Expense" asp-action="ViewAllExpenseByUser">Back to Index</a>
+</div>
+

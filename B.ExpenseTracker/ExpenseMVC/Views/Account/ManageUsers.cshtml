@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "ManageUsers";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1></h1>
+<h2>Manage Users</h2>
+<hr />
+<head>
+
+    <style>
+        .reportlink {
+            background-color: #007bff; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 35px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 59px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+            .reportlink:hover {
+                background-color: orangered;
+            }
+
+        .alignlinks {
+            text-align: center;
+        }
+    </style>
+</head>
+<div class="alignlinks">
+    @Html.ActionLink("Users", "ViewAllUsers", "Account", null, new { @class = "reportlink" })|
+    @Html.ActionLink("Role", "Role", "Account", null, new { @class = "reportlink" })|
+    @Html.ActionLink("UserRole", "UserRole", "Account", null, new { @class = "reportlink" })
+</div>
+
+
+

@@ -1,0 +1,70 @@
+﻿@{
+    var userId = ViewBag.UserID;
+    var userName = ViewBag.UserName;
+    var mailId = ViewBag.MailId;
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/lay.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <header>
+        @{
+            if (userId != null)
+            {
+                <div>
+
+                    <p>Your user ID is: @mailId</p> <a asp-controller="Account" asp-action="Logout">Logout</a>
+
+                </div>
+
+
+
+                <ul id="menu">
+                    <li><a href="@Url.Action("AdminIndex", "Account")">Home</a></li>
+
+                    <li><a href="@Url.Action("InsertCategory", "Category")">Add Category</a></li>
+                    <li><a href="@Url.Action("ViewAllCategory","Category")">List of Category</a></li>
+                    <li><a href="@Url.Action("ManageUsers", "Account")">Manage Users</a></li>
+
+
+                    <li><a href="@Url.Action("AddExpense", "Expense")">Add Expense</a></li>
+                    <li><a asp-controller="Expense" asp-action="ViewAllExpenseByUser">List of Expenses</a></li>
+                    <li><a href="@Url.Action("Report", "Expense")">Report</a></li>
+                    <li><a href="@Url.Action("AboutUs", "Account")">About Us</a></li>
+                </ul>
+
+
+            }
+            else
+            {
+                <div>
+                    <p> <a href="@Url.Action("Login", "Account")">Login</a>
+                </div>
+            }
+        }
+
+
+    </header>
+    <section id="main">
+        @RenderBody()
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+
+                <p class="foot">
+                    Copyright © 2024 Expense Traker. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+

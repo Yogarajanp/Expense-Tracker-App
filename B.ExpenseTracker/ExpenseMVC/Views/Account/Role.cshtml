@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ExpenseTrakerLibrary.Model.Role>
+
+@{
+    ViewData["Title"] = "Role";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<head>
+    <link href="~/css/lay.css" rel="stylesheet" />
+    <link href="~/css/table.css" rel="stylesheet" />
+</head>
+<h1></h1>
+<h2>Role</h2>
+<hr />
+
+<p>
+    <a asp-action="InsertRole">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RoleID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoleName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoleID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoleName)
+                </td>
+                <td>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

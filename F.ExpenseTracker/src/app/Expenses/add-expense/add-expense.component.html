@@ -1,0 +1,74 @@
+<form #expenseForm="ngForm" (ngSubmit)="onSubmit()" class="container">
+  <h2>New Expense</h2>
+
+  <div class="form-row">
+
+
+    <div class="col-md-6 form-group">
+      <label for="description">Description:</label>
+      <input type="text" id="description" name="description" [(ngModel)]="expense.description" required minlength="8"
+        class="form-control">
+      <div
+        *ngIf="expenseForm.controls['description'].invalid && (expenseForm.controls['description'].dirty || expenseForm.controls['description'].touched)">
+        <div *ngIf="expenseForm.controls['description'].errors?.['required']">
+          Description is required
+        </div>
+        <div *ngIf="expenseForm.controls['description'].errors?.['minlength']">
+          Description must be at least 8 characters long
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" [(ngModel)]="expense.amount" required class="form-control">
+    <div
+      *ngIf="expenseForm.controls['amount'].invalid && (expenseForm.controls['amount'].dirty || expenseForm.controls['amount'].touched)">
+      <div *ngIf="expenseForm.controls['amount'].errors?.['required']">
+        Amount is required
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="modeOfTransaction">Mode of Transaction:</label>
+    <select id="modeOfTransaction" name="modeOfTransaction" [(ngModel)]="expense.modeOfTransaction" required
+      class="form-control">
+      <option value="">-- Select Mode --</option>
+      <option value="online">Online</option>
+      <option value="offline">Offline</option>
+    </select>
+    <div
+      *ngIf="expenseForm.controls['modeOfTransaction'].invalid && (expenseForm.controls['modeOfTransaction'].dirty || expenseForm.controls['modeOfTransaction'].touched)">
+      <div *ngIf="expenseForm.controls['modeOfTransaction'].errors?.['required']">
+        Mode of Transaction is required
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="category">Category:</label>
+    <select id="category" name="category" [(ngModel)]="expense.categoryId" required class="form-control">
+      <option value="">-- Select Category --</option>
+      <option *ngFor="let category of categories" [ngValue]="category.categoryID">{{ category.categoryType }}</option>
+    </select>
+    <div
+      *ngIf="expenseForm.controls['category'].invalid && (expenseForm.controls['category'].dirty || expenseForm.controls['category'].touched)">
+      <div *ngIf="expenseForm.controls['category'].errors?.['required']">
+        Category is required
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="receipt">Receipt:</label>
+    <input type="file" id="receipt" name="receipt" (change)="onFileChange($event)" class="form-control">
+
+  </div>
+  <div class="text-center">
+    <button type="submit" [disabled]="expenseForm.invalid" class="btn btn-primary">
+      Add Expense
+    </button>
+  </div>
+</form>

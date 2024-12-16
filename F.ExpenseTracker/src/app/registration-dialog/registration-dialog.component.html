@@ -1,0 +1,9 @@
+<h1 mat-dialog-title [style.color]="titleColor" [style.font-size]="titleFontSize">
+  {{ data.title }}
+</h1>
+<div mat-dialog-content [style.font-size]="contentFontSize">
+  <p>{{ data.message }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="closeDialog()" [style.background-color]="buttonColor">OK</button>
+</div>

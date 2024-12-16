@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ExpenseTracker.Model.Users>
+
+@{
+    ViewData["Title"] = "ViewAllUsers";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<head>
+    <link href="~/css/lay.css" rel="stylesheet" />
+    <link href="~/css/table.css" rel="stylesheet" />
+</head>
+
+<h1></h1>
+<h2>View Users</h2>
+<hr />
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mail)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mail)
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>

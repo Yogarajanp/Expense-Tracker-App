@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "GetAllByYear";
+    Layout = ViewBag.IsAdmin == 1 ? "~/Views/Shared/_LayoutAdmin.cshtml" : "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1></h1>
+<h2>Generate Report By Year</h2>
+<hr />
+@using (Html.BeginForm("ViewAllByYear", "Expense", FormMethod.Post, new { id = "reportForm" }))
+{
+    <div class="form-group">
+        @Html.Label("Select Year:")
+        <select class="form-control" id="year" name="year">
+            @for (int i = DateTime.Now.Year; i >= 2000; i--)
+            {
+                <option value="@i">@i</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Generate Report</button>
+}

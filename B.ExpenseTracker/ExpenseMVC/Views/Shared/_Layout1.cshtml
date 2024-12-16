@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/lay.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <ul id="menu">
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("Movies", "Index", "Movies")</li>
+        <li>@Html.ActionLink("About", "About", "Home")</li>
+    </ul>
+    <section id="main">
+        @RenderBody()
+        <p>Copyright W3schools 2012. All Rights Reserved.</p>
+    </section>
+</body>
+</html>

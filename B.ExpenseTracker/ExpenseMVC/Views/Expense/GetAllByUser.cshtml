@@ -1,0 +1,203 @@
+﻿@model IEnumerable<ExpenseTrakerLibrary.Model.Expense>
+
+@{
+    ViewData["Title"] = "GetAllByUser";
+    Layout = ViewBag.IsAdmin == 1 ? "~/Views/Shared/_LayoutAdmin.cshtml" : "~/Views/Shared/_Layout.cshtml";
+}
+<h1></h1>
+<h2> User Expenses</h2>
+<hr />
+<head>
+    <link href="~/css/lay.css" rel="stylesheet" />
+    <link href="~/css/table.css" rel="stylesheet" />
+    <link href="~/css/editdelete.css" rel="stylesheet" />
+</head>
+
+<p>
+    <a href="@Url.Action("AddExpense", "Expense")">Add Expense</a>
+</p>
+@if (Model.Any())
+{
+
+    <div class="card" id="makepdf">
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Category.CategoryType)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Amount)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DateofTransaction)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ModeOfTransaction)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ReceiptPath)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Category.CategoryType)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Amount)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateofTransaction)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ModeOfTransaction)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+
+                        <td>
+                            @if (!string.IsNullOrEmpty(item.ReceiptPath))
+                            {
+                                <a href="@Url.Action("DownloadReceipt", "Expense", new { expenseId = item.ExpenseID })">Download Receipt</a>
+                            }
+                            else
+                            {
+                                <span>No receipt available</span>
+                            }
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { expenseId = item.ExpenseID }, new { @class = "edit" })|
+                            @Html.ActionLink("Delete", "Delete", new { expenseId = item.ExpenseID }, new { @class = "delete" })
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <br />
+        <br />
+        <br />
+        <div class="total">Total Expense Amount <p> @ViewData["TotalAmount"] </p></div>
+    </div>
+    <div class="chart-container">
+        <canvas id="expenseChart" width="400" height="400"></canvas>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+    <div class="button-container">
+        <button class="print" id="generate-pdf">Print PDF</button>
+    </div>
+
+    <script>
+        let button = document.getElementById("generate-pdf");
+        let makepdf = document.getElementById("makepdf");
+
+        button.addEventListener("click", function () {
+            html2pdf().from(makepdf).save();
+        });
+    </script>
+
+
+    @section scripts {
+    <!-- Include Chart.js library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script>
+        // Function to fetch data and render the chart
+        function renderChart() {
+            $.ajax({
+                url: '@Url.Action("GroupByAmoutforUser", "Expense")', // Replace with your action method to get chart data
+                method: 'GET',
+                success: function (data) {
+                    var ctx = document.getElementById('expenseChart').getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: data.categories,
+                            datasets: [{
+                                label: 'Expense by Category',
+                                data: data.amounts,
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.7)',
+                                    'rgba(54, 162, 235, 0.7)',
+                                    'rgba(255, 206, 86, 0.7)',
+                                    'rgba(75, 192, 192, 0.7)',
+                                    'rgba(153, 102, 255, 0.7)',
+                                    'rgba(255, 159, 64, 0.7)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+
+                            layout: {
+                                padding: {
+                                    left: 0,
+                                    right: 0,
+                                    top: 0, // Adjust top padding as needed to center the chart vertically
+                                    bottom: 0
+                                }
+                            },
+                            responsive: false,
+                            plugins: {
+                                legend: {
+                                    position: 'top',
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Expense by Category'
+                                }, datalabels: {
+                                    formatter: (value, ctx) => {
+                                        let sum = ctx.dataset.data.reduce((a, b) => a + b, 0);
+                                        let percentage = ((value / sum) * 100).toFixed(2) + "%";
+                                        return percentage;
+                                    },
+                                    color: '#fff',
+                                    font: {
+                                        weight: 'bold'
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+            });
+        }
+
+        // Call the function to render the chart
+        renderChart();
+    </script>
+    }
+}
+else
+{
+    <div style="color:red;text-align:center;">No records found</div>
+}

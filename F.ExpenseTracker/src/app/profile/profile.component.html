@@ -1,0 +1,8 @@
+<app-navbar></app-navbar>
+<div class="profile-container">
+    <p>Email: {{ profile.mail || 'N/A' }}</p>
+    <p>Name: {{ profile.userName || 'N/A' }}</p>
+</div>
+<div class="error message" *ngIf="error">{{ error }}</div>
+<button type="button" class="btn btn-success" (click)="changePassword()">Change Password</button>
+<app-footer></app-footer>

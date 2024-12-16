@@ -1,0 +1,128 @@
+﻿/* st.css */
+
+/* Reset default margin and padding */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply background color and center content */
+body {
+    background-color: #f0f0f0; /* Light gray background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Make the body take up the full height of the viewport */
+}
+
+/* Style the form container */
+.form-box {
+    background-color: #fff; /* White background color for the form */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px; /* Set the width of the form */
+}
+
+/* Style the header text */
+.header-text {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+
+
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Style form inputs */
+.form-control {
+    width: 97%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Style the submit button */
+.sub {
+    width: 102% padding: 10px;
+}
+
+
+
+.sub {
+    padding: 10px 20px;
+    background-color: #f36170;
+    width: 101%;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+    .sub:hover {
+        background-color: #f44557;
+    }
+
+
+
+/* Style the sign-up link */
+.sign-up {
+    text-align: center;
+    margin-top: 10px;
+}
+
+    .sign-up a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        .sign-up a:hover {
+            text-decoration: underline;
+        }
+/* Style validation error messages */
+.text-danger {
+    color: red;
+    font-size: 12px;
+}
+
+
+
+.container {
+    display: flex;
+    width: 80%; /* Adjust as needed */
+    height: 80%; /* Adjust as needed */
+    background-color: #f2f2f2;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.story {
+    flex: 1;
+    background-color: #f123;
+    padding: 40px;
+}
+
+
+.login-container {
+    flex: 1;
+    padding: 40px;
+    background-color: #fff;
+}
+
+
+input[type="text"],
+input[type="password"],
+select {
+    width: 97%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}

@@ -1,0 +1,57 @@
+﻿@model ExpenseTracker.Model.Users
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="~/css/Login.css" />
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="story">
+            <h2>Our Story</h2>
+            <p style="text-align: justify;">
+                Once in Metropolis lived Alex, a carefree young man known for his lavish spending habits. Ignoring warnings about budgeting, he indulged in expensive dinners and  trips, oblivious to his mounting debt.
+                One day, Alex received an unexpected bill in the mail—a hefty sum for all his spending over the past few months. Determined to change, he embraced frugality and budgeting. With discipline, he saw his finances improve, finding joy in saving without sacrificing his passions.
+                Alex's transformation inspired others to take control of their finances, showing that mindful spending leads to financial security and abundance.
+
+            </p>
+        </div>
+        <div class="login-container">
+            <div class="header-text">Login</div>
+            <form asp-action="Verify">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <input asp-for="Mail" placeholder="Your Email Address" class="form-control" />
+                    <span asp-validation-for="Mail" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input asp-for="Password" placeholder="Your Password" type="password" class="form-control pass-key" />
+                    <span asp-validation-for="Password" class="text-danger"> </span>
+                </div>
+                <input type="submit" value="Login" class="sub" />
+                <div class="sign-up">
+                    Don't have an account? <a asp-action="Register">Sign Up</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,37 @@
+﻿.delete {
+    background-color: #ff0000bf; /* Green */
+    border: none;
+    color: white;
+    padding: 9px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0px 0px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+    .delete:hover {
+        background-color: red;
+    }
+
+.edit {
+    background-color: cornflowerblue; /* Green */
+    border: none;
+    color: white;
+    padding: 9px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0px 0px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+    .edit:hover {
+        background-color: #005bfd;
+    }
+
+

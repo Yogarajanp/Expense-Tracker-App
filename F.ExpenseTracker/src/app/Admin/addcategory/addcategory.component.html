@@ -1,0 +1,22 @@
+<form [formGroup]="categoryForm" (ngSubmit)="onSubmit()" class="container">
+  <h2>New Expense</h2>
+
+  <div class="form-row">
+    <div class="col-md-6 form-group">
+      <label for="categoryType">Category Type:</label>
+      <input type="text" id="categoryType" formControlName="categoryType" required class="form-control">
+      <div
+        *ngIf="categoryForm.controls['categoryType'].invalid && (categoryForm.controls['categoryType'].dirty || categoryForm.controls['categoryType'].touched)">
+        <div *ngIf="categoryForm.controls['categoryType'].errors?.['required']">
+          Category Type is required
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <button type="submit" [disabled]="categoryForm.invalid" class="btn btn-primary">
+      Add Expense
+    </button>
+  </div>
+</form>

@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+
+<div class="container my-4">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="parent-canvas" *ngIf="isChartData; else noDataTemplate">
+        <canvas id="chart"></canvas>
+      </div>
+      <ng-template #noDataTemplate>
+        <div class="alert alert-warning" role="alert">
+          No data available for the selected year and month.
+        </div>
+      </ng-template>
+    </div>
+    <div class="col-md-4">
+      <div class="filters">
+        <div class="form-group">
+          <label for="year">Year:</label>
+          <select id="year" class="form-control" [(ngModel)]="selectedYear">
+            <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="month">Month:</label>
+          <select id="month" class="form-control" [(ngModel)]="selectedMonth">
+            <option *ngFor="let month of months" [value]="month.value">{{ month.name }}</option>
+          </select>
+        </div>
+        <button type="button" (click)="showChartByMonth(selectedYear, selectedMonth)"
+          class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

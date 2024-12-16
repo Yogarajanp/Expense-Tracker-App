@@ -1,0 +1,29 @@
+D:\InternProject\ExpenseTraker\UserLibrary\bin\Debug\net8.0\ExpenseTrakerLibrary.deps.json
+D:\InternProject\ExpenseTraker\UserLibrary\bin\Debug\net8.0\ExpenseTrakerLibrary.runtimeconfig.json
+D:\InternProject\ExpenseTraker\UserLibrary\bin\Debug\net8.0\ExpenseTrakerLibrary.dll
+D:\InternProject\ExpenseTraker\UserLibrary\bin\Debug\net8.0\ExpenseTrakerLibrary.pdb
+D:\InternProject\ExpenseTraker\UserLibrary\obj\Debug\net8.0\ExpenseTrakerLibrary.csproj.AssemblyReference.cache
+D:\InternProject\ExpenseTraker\UserLibrary\obj\Debug\net8.0\ExpenseTrakerLibrary.GeneratedMSBuildEditorConfig.editorconfig
+D:\InternProject\ExpenseTraker\UserLibrary\obj\Debug\net8.0\ExpenseTrakerLibrary.AssemblyInfoInputs.cache
+D:\InternProject\ExpenseTraker\UserLibrary\obj\Debug\net8.0\ExpenseTrakerLibrary.AssemblyInfo.cs
+D:\InternProject\ExpenseTraker\UserLibrary\obj\Debug\net8.0\ExpenseTrakerLibrary.csproj.CoreCompileInputs.cache
+D:\InternProject\ExpenseTraker\UserLibrary\obj\Debug\net8.0\ExpenseTrakerLibrary.dll
+D:\InternProject\ExpenseTraker\UserLibrary\obj\Debug\net8.0\refint\ExpenseTrakerLibrary.dll
+D:\InternProject\ExpenseTraker\UserLibrary\obj\Debug\net8.0\ExpenseTrakerLibrary.pdb
+D:\InternProject\ExpenseTraker\UserLibrary\obj\Debug\net8.0\ExpenseTrakerLibrary.genruntimeconfig.cache
+D:\InternProject\ExpenseTraker\UserLibrary\obj\Debug\net8.0\ref\ExpenseTrakerLibrary.dll
+D:\Expense Tracker\B.ExpenseTracker\UserLibrary\bin\Debug\net8.0\ExpenseTrakerLibrary.deps.json
+D:\Expense Tracker\B.ExpenseTracker\UserLibrary\bin\Debug\net8.0\ExpenseTrakerLibrary.runtimeconfig.json
+D:\Expense Tracker\B.ExpenseTracker\UserLibrary\bin\Debug\net8.0\ExpenseTrakerLibrary.dll
+D:\Expense Tracker\B.ExpenseTracker\UserLibrary\bin\Debug\net8.0\ExpenseTrakerLibrary.pdb
+D:\Expense Tracker\B.ExpenseTracker\UserLibrary\obj\Debug\net8.0\ExpenseTrakerLibrary.csproj.AssemblyReference.cache
+D:\Expense Tracker\B.ExpenseTracker\UserLibrary\obj\Debug\net8.0\ExpenseTrakerLibrary.GeneratedMSBuildEditorConfig.editorconfig
+D:\Expense Tracker\B.ExpenseTracker\UserLibrary\obj\Debug\net8.0\ExpenseTrakerLibrary.AssemblyInfoInputs.cache
+D:\Expense Tracker\B.ExpenseTracker\UserLibrary\obj\Debug\net8.0\ExpenseTrakerLibrary.AssemblyInfo.cs
+D:\Expense Tracker\B.ExpenseTracker\UserLibrary\obj\Debug\net8.0\ExpenseTrakerLibrary.csproj.CoreCompileInputs.cache
+D:\Expense Tracker\B.ExpenseTracker\UserLibrary\obj\Debug\net8.0\ExpenseTrakerLibrary.dll
+D:\Expense Tracker\B.ExpenseTracker\UserLibrary\obj\Debug\net8.0\refint\ExpenseTrakerLibrary.dll
+D:\Expense Tracker\B.ExpenseTracker\UserLibrary\obj\Debug\net8.0\ExpenseTrakerLibrary.pdb
+D:\Expense Tracker\B.ExpenseTracker\UserLibrary\obj\Debug\net8.0\ExpenseTrakerLibrary.genruntimeconfig.cache
+D:\Expense Tracker\B.ExpenseTracker\UserLibrary\obj\Debug\net8.0\ref\ExpenseTrakerLibrary.dll
+D:\Expense Tracker\B.ExpenseTracker\UserLibrary\obj\Debug\net8.0\ExpenseTrakerLibrary.sourcelink.json

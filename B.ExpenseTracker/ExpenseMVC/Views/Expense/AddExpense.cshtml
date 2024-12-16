@@ -1,0 +1,94 @@
+﻿@using ExpenseTrakerLibrary.Model
+@model ExpenseTrakerLibrary.Model.Expense
+
+
+@{
+    ViewData["Title"] = "AddExpense";
+    Layout = ViewBag.IsAdmin == 1 ? "~/Views/Shared/_LayoutAdmin.cshtml" : "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h1> </h1>
+
+<h2>Add Expense</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddExpense" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select asp-for="CategoryId" class="form-control" required>
+                    <option value="">Select a Category</option>
+                    @{
+                        // Retrieve categories from ViewData
+                        var categories = ViewData["Categories"] as List<Category>;
+                    }
+                    @foreach (var i in categories)
+                    {
+                        <option value="@i.CategoryID">@i.CategoryType</option>
+                    }
+                </select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control" />
+
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ModeOfTransaction" class="control-label"></label>
+                <select asp-for="ModeOfTransaction" required>
+                    <option value="">Select Mode of Transaction</option>
+                    <option asp-for="ModeOfTransaction">Online</option>
+                    <option asp-for="ModeOfTransaction">Offline</option>
+                </select>
+                <span asp-validation-for="ModeOfTransaction" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="control-label"> </textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReceiptPath" class="control-label">Upload Receipt</label>
+                <input type="file" name="file" asp-for="ReceiptPath" class="form-control" id="receiptFile" accept=".pdf, .jpeg, .jpg, .png" />
+
+
+                <span asp-validation-for="ReceiptPath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="GetAllByUser">Back to List</a>
+</div>
+<script>
+    function validateForm() {
+        var fileInput = document.getElementById('receiptFile');
+        var filePath = fileInput.value;
+
+        // Check if a file is selected
+        if (filePath.trim() !== '') {
+            var allowedExtensions = /(\.pdf|\.jpeg|\.jpg|\.png)$/i;
+
+            if (!allowedExtensions.exec(filePath)) {
+                alert('Only PDF, JPEG, and PNG files are allowed.');
+                fileInput.value = '';
+                return false;
+            }
+        }
+
+        return true;
+    }
+</script>

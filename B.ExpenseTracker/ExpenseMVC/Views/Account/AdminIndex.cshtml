@@ -1,0 +1,38 @@
+﻿@model ExpenseTracker.Model.Users
+
+@{
+    ViewData["Title"] = "Index";
+    string username = ViewBag.Username;
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1> </h1>
+
+<h2>
+    <div class="welcome">
+        Welcome<span style="color:maroon; font-weight: bold;"> @username</span>
+    </div>
+</h2>
+<hr />
+<head>
+    <style>
+        .welcome {
+            font-size: 20px;
+            font-family: cursive;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<div class="page-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <h3 style="background-color:maroon;text-align:center;">Budget Smarter, Live Better!</h3>
+            </div>
+        </div>
+    </div>
+</div>
+

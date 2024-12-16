@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ExpenseTrakerLibrary.Model.Category>
+
+@{
+    ViewData["Title"] = "ViewAllCategory";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<head>
+    <link href="~/css/lay.css" rel="stylesheet" />
+    <link href="~/css/table.css" rel="stylesheet" />
+
+    <link href="~/css/editdelete.css" rel="stylesheet" />
+</head>
+<h1> </h1>
+<h2> List Of Category</h2>
+<hr />
+
+<p>
+    <a asp-action="InsertCategory">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryType)
+                </td>
+                <td>
+
+
+                    @Html.ActionLink("Delete", "Delete", new { categoryId = item.CategoryID }, new { @class = "delete" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

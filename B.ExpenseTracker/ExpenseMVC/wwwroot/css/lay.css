@@ -1,0 +1,178 @@
+﻿body {
+    font-family: 'Poppins', sans-serif;
+   
+    background-color: #FFFFFF;
+   
+}
+
+h1 {
+    border-bottom: 3px solid #cc9900;
+    font: Georgia, serif;
+    color: #000000;
+}
+
+#main {
+    background-color: #FFFFFF;
+    border-radius: 0 4px 4px 4px;
+    min-height: 69vh;
+}
+
+a {
+    color:#1E1E1E ;
+}
+
+ul#menu {
+    padding: 0px;
+    color: #212529;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    margin: 0;
+}
+
+    ul#menu li {
+        display: inline;
+    }
+
+        ul#menu li a {
+           
+            padding: 10px 10px;
+            text-decoration: none;
+            line-height: 2.8em;
+            
+            border-radius: 4px 4px 0 0;
+        }
+
+            ul#menu li a:hover {
+                color: #F35525;
+            }
+/* Forms Styles */
+fieldset {
+    padding-left: 12px;
+}
+
+    fieldset label {
+        display: block;
+        padding: 4px;
+    }
+
+input[type="text"], input[type="password"] {
+    width: 300px;
+}
+
+input[type="submit"] {
+    padding: 4px;
+}
+
+/*footer---*/
+
+footer {
+    background-color: #1e1e1e;
+    color: #FFFFFF;
+    min-height: 100px;
+   padding-top:150px
+    width: 100%;
+  
+}
+p.foot{
+    text-align:center;
+    padding:20px;
+}
+
+
+
+.page-heading {
+    background-image: url(../Image/expense1.jpg);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 110px 0px;
+    text-align: center;
+    
+}
+
+    .page-heading span {
+        background-color: #fff;
+        color: #1e1e1e;
+        font-size: 14px;
+        font-weight: 500;
+        text-transform: uppercase;
+        padding: 10px 25px;
+        display: inline-block;
+        margin-bottom: 30px;
+    }
+
+        .page-heading span a {
+            color: #1e1e1e;
+        }
+
+    .page-heading h3 {
+        font-size: 48px;
+        font-weight: 900;
+        text-align: center;
+        text-transform: uppercase;
+        color: #fff;
+        background-color: maroon;
+    }
+
+/* Forms Styles ------------------------------*/
+form {
+    padding: 20px;
+    width:max-content;
+}
+
+.form-group {
+    margin-bottom: 20px; 
+}
+
+label.control-label {
+    font-weight: bold; 
+}
+
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+    width: 97%; 
+    padding: 10px; 
+    margin-top: 5px; 
+    margin-bottom: 10px; 
+    border-radius: 5px; 
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff; 
+    color: #fff; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    input[type="submit"]:hover {
+        background-color: #0056b3; 
+    }
+
+
+/* Data Styles */
+
+   .total{
+    text-align:center;
+   }
+   .total p{
+       color:red;
+   }
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    height: 70vh; /* Adjust as needed to center vertically */
+}
+.field-validation-error {
+    color: red;
+}
+.custom-error-message {
+    color: red; /* Change the color as per your requirement */
+}

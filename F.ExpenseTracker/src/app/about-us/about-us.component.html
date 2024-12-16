@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+<div class="about-us container mt-5">
+  <h2 class="text-center mb-4">About Us</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <img src="./meeting image.jpg" class="img-fluid" alt="About Us Image">
+    </div>
+    <div class="col-md-6">
+      <h3>Our Mission</h3>
+      <p>
+        At Expense Tracker, our mission is to help you manage your finances effectively and efficiently.
+        We believe that keeping track of your expenses shouldn't be a hassle. Our user-friendly platform
+        allows you to monitor your spending and save money.
+      </p>
+      <h3>Our Story</h3>
+      <p>
+        Expense Tracker was founded in 2023 with the goal of providing a simple and intuitive expense management tool.
+        Our team is passionate about personal finance and technology, and we're dedicated to making financial management
+        accessible to everyone.
+      </p>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <h3>Meet the Team</h3>
+    </div>
+
+    <div class="col-md-4" *ngFor="let member of teamMembers">
+      <div class="card mb-4">
+        <img src="./viewPhoto.jpg" class="card-img-top" alt="{{ member.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ member.name }}</h5>
+          <p class="card-text">{{ member.role }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

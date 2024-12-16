@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Report";
+    Layout = ViewBag.IsAdmin == 1 ? "~/Views/Shared/_LayoutAdmin.cshtml" : "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h1></h1>
+<h2>Report</h2>
+<hr />
+<head>
+
+    <style>
+        .reportlink {
+            background-color: #007bff; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 35px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 59px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+            .reportlink:hover {
+                background-color: orangered;
+            }
+
+        .alignlinks {
+            text-align: center;
+        }
+    </style>
+</head>
+<div class="alignlinks">
+    @Html.ActionLink("Expense By Date", "GetAllByDate", "Expense", null, new { @class = "reportlink" })|
+    @Html.ActionLink("Expense By Month", "GetAllByMonth", "Expense", null, new { @class = "reportlink" })|
+    @Html.ActionLink("Expense By Year", "GetAllByYear", "Expense", null, new { @class = "reportlink" })|
+    @Html.ActionLink("Last 6 Months Expense", "ViewAllByLastSix", "Expense", null, new { @class = "reportlink" })
+</div>
+

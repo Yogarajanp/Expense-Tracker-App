@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ExpenseTrakerLibrary.Model.UserRole>
+
+@{
+    ViewData["Title"] = "UserRole";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<head>
+    <link href="~/css/lay.css" rel="stylesheet" />
+    <link href="~/css/table.css" rel="stylesheet" />
+    <link href="~/css/editdelete.css" rel="stylesheet" />
+</head>
+<h1></h1>
+<h2>User Role</h2>
+<hr />
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Users.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Role.RoleName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Users.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Role.RoleName)
+                </td>
+                <td>
+
+                    @Html.ActionLink("Delete", "DeleteUserRole", new { userRoleId = item.UserRoleID }, new { @class = "delete" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

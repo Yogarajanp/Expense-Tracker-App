@@ -1,0 +1,105 @@
+﻿body {
+    font-family: Arial, sans-serif;
+}
+
+#container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    background-color: white;
+    color: black;
+    padding: 12px;
+    width: 100%;
+    font-family: Georgia;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+    nav ul li {
+        display: inline;
+        margin-right: 10px;
+    }
+
+#main {
+    margin-top: 50px;
+}
+
+
+
+/* Existing styles from Site.css */
+
+#main-content {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.custom-link {
+    margin-top: 20px;
+    text-align: right;
+}
+
+    .custom-link a {
+        display: inline-block;
+        padding: 10px 30px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 3px;
+        transition: background-color 0.3s ease;
+    }
+
+        .custom-link a:hover {
+            background-color: #0056b3;
+        }
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-section {
+    max-width: 300px;
+}
+
+    .footer-section h3 {
+        border-bottom: 1px solid #fff;
+    }
+
+    .footer-section ul {
+        list-style: none;
+        padding: 0;
+        color: antiquewhite;
+    }
+
+        .footer-section ul li {
+            margin: 8px 0;
+        }
+
+.social-media {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+    .social-media li {
+        margin-right: 10px;
+    }
+
+    .social-media img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }

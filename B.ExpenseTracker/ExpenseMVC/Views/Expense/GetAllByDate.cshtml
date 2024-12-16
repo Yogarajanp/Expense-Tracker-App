@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "GetAllByDate";
+    Layout = ViewBag.IsAdmin == 1 ? "~/Views/Shared/_LayoutAdmin.cshtml" : "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1></h1>
+<h2>Genearates Reports Between Dates</h2>
+<hr />
+<div id="message" style="display:none; color:red;"></div>
+@using (Html.BeginForm("ViewAllByDate", "Expense", FormMethod.Post, new { id = "reportForm" }))
+{
+    <div class="form-group">
+        @Html.Label("Start Date:")
+        <input type="date" class="form-control" id="startDate" name="fromDate" required>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("End Date:")
+        <input type="date" class="form-control" id="endDate" name="toDate" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Generate Report</button>
+}
+
+
+<script>
+    document.getElementById('reportForm').addEventListener('submit', function (event) {
+        var startDate = new Date(document.getElementById('startDate').value);
+        var endDate = new Date(document.getElementById('endDate').value);
+
+        var today = new Date();
+
+        if (startDate > today || endDate > today) {
+            document.getElementById('message').innerText = "Start date or end date cannot be in the future.";
+            document.getElementById('message').style.display = "block";
+            event.preventDefault();
+        }
+    });
+</script>
